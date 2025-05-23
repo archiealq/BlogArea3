@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import supabase from "../config/supabaseClient";
 import { Link } from "react-router-dom";
 
-const Login = (setToken) => {
+const Login = ({ setToken }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -36,7 +36,7 @@ const Login = (setToken) => {
       alert(error.message);
     } else {
       alert("Login successful!");
-      setToken(data)
+      setToken(data); // Token/session data from Supabase
       navigate("/home");
     }
   };
